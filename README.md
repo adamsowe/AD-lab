@@ -1,5 +1,3 @@
-<img width="1066" height="1291" alt="image" src="https://github.com/user-attachments/assets/c95d759e-5b3d-4821-a9a3-4044b9ddec39" /># AD Lab: Windows Server + Active Directory
-
 Small company network in virtual machines (VMware Workstation).
 
 ## What's in it
@@ -69,7 +67,8 @@ Small company network in virtual machines (VMware Workstation).
 
   - Check if everything is setup as expected
   <img width="1066" height="1291" alt="image" src="https://github.com/user-attachments/assets/0fa92430-3b6e-4ec7-b359-4a01af594f0a" />
-  - DHCP console: Server Manager -> Tools -> DHCP: 
+  - DHCP console: Server Manager -> Tools -> DHCP:
+
   <img width="608" height="574" alt="Windows Server 2022-2026-10-06-19-25-07" src="https://github.com/user-attachments/assets/5e324215-1266-44a2-a4fc-0307fe452b18" />
 
   ### 5. Take Snapshot
