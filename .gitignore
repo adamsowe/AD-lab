@@ -1,0 +1,21 @@
+# VM files and images
+*.vmdk
+*.vmx
+*.vmem
+*.vmsn
+*.vmss
+*.nvram
+*.lck/
+*.iso
+*.ova
+*.vhdx
+
+# Backups and logs
+*.bak
+*.log
+
+# Anything private
+*.pfx
+*.key
+secrets.*
+.env
