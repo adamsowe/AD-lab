@@ -70,6 +70,7 @@ Small company network in virtual machines (VMware Workstation).
   
 
   <img width="608" height="574" alt="Windows Server 2022-2026-10-06-19-25-07" src="https://github.com/user-attachments/assets/5e324215-1266-44a2-a4fc-0307fe452b18" />
+  
   - DHCP console: Server Manager -> Tools -> DHCP:
 
   ### 5. Take Snapshot
