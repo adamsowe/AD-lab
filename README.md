@@ -17,7 +17,7 @@ Small company network in virtual machines (VMware Workstation).
 
 ## Setup steps
   ### 1. Server VM setup
-  - Create new host only network in Virtual Network Editor
+  - Create new host only network in Virtual Network Editor (VMnet2)
   - Disable local DHCP (Use Windows DHCP later)
   - Setup Server VM, select Standard Installation with Desktop Environment (Don't use easy install)
   - Install VMWare Tools using Installation Media
@@ -72,8 +72,89 @@ Small company network in virtual machines (VMware Workstation).
   <img width="608" height="574" alt="Windows Server 2022-2026-10-06-19-25-07" src="https://github.com/user-attachments/assets/5e324215-1266-44a2-a4fc-0307fe452b18" />
   
   - DHCP console: Server Manager -> Tools -> DHCP:
+    
+  ### 5. Setup Client VM
+  - setup network adapter to use VMnet 2 from earlier (to get ip from my DHCP server)
+  - choose Domain join under sign-in options or manually renew ipconfig post install
+    <img width="693" height="374" alt="Windows 11 x64-2026-10-07-15-08-36" src="https://github.com/user-attachments/assets/17113857-3841-4f18-a465-86cdb2a4ce1b" />
+  - check IP address is in correct pool
+  - join the domain via PowerShell cmd
+  ```powershell
+  Add-Computer -DomainName lab.internal -NewName PC01 -Credential LAB\Administrator -Restart
+  ```
+  - check if I can sign in to LAB\Administrator from client VM
+  <img width="1247" height="1169" alt="Windows 11 x64-2026-10-07-15-33-36" src="https://github.com/user-attachments/assets/4493cd70-9f39-43ab-9094-60de8c6be500" />
 
-  ### 5. Take Snapshot
+  ### 6. Organizational Unit "Staff" Setup
+  - Open Server Manager -> Tools -> AD Users and Computers
+  - Right Click lab.internal -> New/OU -> "Staff"
+  - Open "Staff" -> New/Group -> set to global security group
+  - repeat process for IT, HR and Sales
+
+  ### 7. Create Users in bulk
+  - Create .csv file with: FirstName,LastName,Department,Group and fill in example user data
+  - create and run PowerShell script to loop through the csv and create new test users
+  ```powershell
+  Import-Module ActiveDirectory
+  $ou  = "OU=Staff,DC=lab,DC=internal"
+  $pw  = ConvertTo-SecureString "ChangeMe!2026" -AsPlainText -Force
+  Import-Csv .\users.csv | ForEach-Object {
+      $sam = ($_.FirstName.Substring(0,1) + $_.LastName).ToLower()
+      if (-not (Get-ADUser -Filter "SamAccountName -eq '$sam'")) {
+          New-ADUser -Name "$($_.FirstName) $($_.LastName)" -GivenName $_.FirstName -Surname $_.LastName `
+              -SamAccountName $sam -UserPrincipalName "$sam@lab.internal" -Path $ou `
+              -Department $_.Department -AccountPassword $pw -ChangePasswordAtLogon $true -Enabled $true
+          Add-ADGroupMember -Identity $_.Group -Members $sam
+          Write-Output "Created $sam"
+      } else { Write-Output "$sam already exists, skipped" }
+  }
+  ```
+  <img width="377" height="352" alt="Windows Server 2022-2026-10-07-15-57-38" src="https://github.com/user-attachments/assets/10517697-5577-4ef4-b21e-6312fa4c5a47" />
+
+  ### 8. Shared Folder for Sales employees
+  - create the sales folder itself and share it so that only sales group can access it
+  ```powershell
+  New-Item -Path C:\Shares\Sales -ItemType Directory
+  New-SmbShare -Name "Sales" -Path "C:\Shares\Sales" -ChangeAccess "LAB\Sales" -FullAccess "LAB\Domain Admins"
+  ```
+  - set NTFS folder permissions
+  ```powerhsell
+  icacls C:\Shares\Sales /inheritance:r
+  icacls C:\Shares\Sales /grant "LAB\Sales:(OI)(CI)M" "LAB\Domain Admins:(OI)(CI)F" "BUILTIN\Administrators:(OI)(CI)F" "SYSTEM:(OI)(CI)F"
+  ```
+  - first cmd removes the inherited permissions, so people who aren't named can't get in through the default permissions. The second cmd grants Modify to Sales and Full control to the admins. (OI)(CI) makes the permissions apply to everything inside the folder, too.
+  - final access is determined by stricter of the two(Share & NTFS permissions)
+    
+  <img width="1025" height="632" alt="Windows Server 2022-2026-10-07-16-13-41" src="https://github.com/user-attachments/assets/7c4652df-2a4d-469f-b78d-dc093ad93af3" />
+  - check the permissions from DC01
+  <img width="1247" height="1169" alt="image" src="https://github.com/user-attachments/assets/634b596a-8377-4b51-bd36-5d97f444bdeb" />
+  - testing whether a sales user can see the shared folder \\DC01\Sales and create docs
+  <img width="1247" height="1169" alt="image" src="https://github.com/user-attachments/assets/0a583982-41ea-4375-bdfc-64e88ac7ebbb" />
+  - testing with it user, access denied as wanted
+
+  ### 9. Adding Group Policies
+  - Password policy (domain level - at least 12 characters)
+  - DC01 -> Server Manager -> Tools -> Group Policy Management
+  - Forest: lab.internal -> Domains -> lab.internal -> Default Domain Policy -> Right Click -> Edit
+  - In Group Policy Management Editor window that opens -> Computer Configuration -> Policies -> Windows Settings -> Security Settings -> Account Policies -> Password Policies -> set Minimum pw length to 12
+  - Mapping Sales share as a drive
+  - in GPM right click Staff OU -> Create a GPO in this domain, and Link it here -> Name: Map Sales Drive
+  - Right Click "Map Sales Drive" and edit
+  - in GPME User Configuration -> Preferences -> Windows Settings -> Drive Maps -> Right Click/New Mapped Drive
+  - Set Action to Create, location to \\DC01\Sales, check "reconnect" and select a drive letter, "S:" in this case
+  - Common Tab -> check "item-level targeting"
+  - Open Targeting -> New Item -> Security Group -> Select "LAB\Sales" with "User in group" checked
+  <img width="959" height="1169" alt="image" src="https://github.com/user-attachments/assets/e54b022b-f66e-4053-af8d-b070dee1f727" />
+  - S: not visible on IT group user
+  <img width="959" height="1169" alt="image" src="https://github.com/user-attachments/assets/ddbfd4bd-5c75-4516-a951-fdde9f5f922d" />
+  - S: is visible as a Sales group user
+
+
+
+
+
+
+  
 
 
 
@@ -83,5 +164,16 @@ Small company network in virtual machines (VMware Workstation).
 ## What went wrong and how I fixed it
 - Error: "Windows cannot find the Microsoft Software License Terms. Make sure the installation sources are valid and restart the installation."
     - Windows Server Evaluation ISO doesn't seem to be compatible with easy install, so I used custom setup and installed it later manually using the virtual DVD drive
+ 
+- Created the client VM without the server running so i couldn't add it to the domain in the installer and had to do it once booted into fresh install
+- Used commands
+```cmd
+ipconfig /release
+ipconfig /renew
+ipconfig /all
+```
+
+- Mapped Sales drive didn't show up at first
+- unchecked the item-level targeting option and added it again using the browse button to pick "LAB\Sales" and confirm it using check names (SID visible now which wasn't before)
 
 
