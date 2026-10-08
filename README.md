@@ -8,7 +8,7 @@ Small company network in virtual machines (VMware Workstation).
 - Backup with a tested restore
 
 ## Network
-(diagram goes here)
+![Network diagram](docs/ADlab_network.png)
 
 ## Requirements
 - Host: Windows PC, VMware Workstation Pro, ~150 GB free disk
