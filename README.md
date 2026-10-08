@@ -191,6 +191,32 @@ Small company network in virtual machines (VMware Workstation).
   - making sure file permissions where also correctly restored (correct since HR and IT don't have access)
 
 
+### 12. Testing Veeam instead of Windows Server Backup
+
+- Download Veeam Community ISO
+- attach ISO in Windows Server VM Settings DVD Drive
+- Navigate to DVD Drive in Windows and run Setup.exe
+- Choose "Install Veeam Backup & Replication" and restart once install is complete
+- Open Veeam Console -> Select localhost as backup server -> trust certificate -> Sign in as current user
+- Open Backup Infrastructure -> Backup Repositories -> add backup repository -> direct attached storage -> select E:
+- Home -> Backup Job -> File Share
+- Enter SMB path as \\DC01\Sales and enter administrator credentials
+- Select Backup Repository I created earlier to finish setting up the Backup
+- Right click the Backup and select start
+<img width="1686" height="992" alt="Windows Server 2022-2026-10-08-21-53-43" src="https://github.com/user-attachments/assets/8617e5e0-4ea2-4c3e-96ed-c7a301ff7278" />
+
+- confirmation of backup job
+
+- deleted test.txt to test the restore function
+- Go to Backups -> Select your Backup Job -> the files you want to backup -> select "files and folders" -> restore
+<img width="1256" height="837" alt="Windows Server 2022-2026-10-08-22-22-26" src="https://github.com/user-attachments/assets/563637c4-34ec-444a-8e3c-36b48cb389e7" />
+
+- confirmation of the files being restored
+<img width="1099" height="632" alt="Windows Server 2022-2026-10-08-22-25-04" src="https://github.com/user-attachments/assets/0664f21d-56cd-44da-897a-9ff55311d22b" />
+
+- icacls also confirmed that Sales still have modify rights
+
+
 
 
 
@@ -217,4 +243,11 @@ ipconfig /all
 - Mapped Sales drive didn't show up at first
 - unchecked the item-level targeting option and added it again using the browse button to pick "LAB\Sales" and confirm it using check names (SID visible now which wasn't before)
 
+- Veeam failed to connect to the backup server localhost
+- I installed "Veeam Backup & Replication Console" by mistake this doesn't install the Server just the Console so I did a reinstall
+
+- Virtual Disk wasn't large enough to install Veeam (needs 48gb free space)
+- Deleted Snapshots and expanded disk to 100gb
+- delete recovery partition using diskpart and extend C: to full capacity
+- continue Veeam install
 
