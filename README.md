@@ -178,8 +178,10 @@ Small company network in virtual machines (VMware Workstation).
   <img width="837" height="687" alt="Windows Server 2022-2026-10-08-11-05-45" src="https://github.com/user-attachments/assets/6128b8c8-dd30-4051-8957-fadeb0361a73" />
   - restore confirmation (restore took roughly 10 seconds)
   <img width="778" height="630" alt="Windows 11 x64-2026-10-08-11-19-20" src="https://github.com/user-attachments/assets/14a58b84-bc3e-469e-8a57-0df69f52932a" />
+  
   - file has been restored
   <img width="560" height="177" alt="Windows Server 2022-2026-10-08-11-23-29" src="https://github.com/user-attachments/assets/96326282-3200-42fb-ac5b-b959d15b0946" />
+  
   - making sure file permissions where also correctly restored (correct since HR and IT don't have access)
 
 
