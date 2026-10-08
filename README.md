@@ -156,6 +156,7 @@ Small company network in virtual machines (VMware Workstation).
   - Edit "Restrict Control Panel" -> User Configuration -> Policies -> Administrative Policies -> Control Panel -> Enable "Prohibit access to Control Panel and PC Settings"
   - In GPM Window open "Restrict Control Panel" -> Delegation tab -> Advanced -> Add "IT" and validate group -> check "deny" on apply group policy
   <img width="959" height="1169" alt="image" src="https://github.com/user-attachments/assets/25e3239b-267d-46b1-9e71-79a155ed9e54" />
+  
   - View non IT users see when trying to open Control Panel
 
 
@@ -169,13 +170,16 @@ Small company network in virtual machines (VMware Workstation).
   ```
   - Server Manager -> Tools -> Windows Server Backup -> Local Backup -> Backup Once -> Select Different Options -> Custom -> Add the Folder you want to backup (Sales) -> Local drives -> Select E: and backup
   <img width="837" height="687" alt="Windows Server 2022-2026-10-08-11-05-45" src="https://github.com/user-attachments/assets/ee04db36-0502-4e14-9ad9-fc1e91ab0d7e" />
+  
   - confirmation of backup completion
 
   ### 11. Testing the Backup
   - Delete test.txt from Sales folder
   <img width="967" height="786" alt="Windows Server 2022-2026-10-08-11-21-31" src="https://github.com/user-attachments/assets/e81f02b9-a7eb-4f76-aff2-45b4a3b77f00" />
+  
   - in Windows Server Backup select "Restore" -> This Server -> Select the backup time you want to use (in this case it auto choose since there's just one) -> Files and Folders -> Select the file you want to restore -> original location 
   <img width="837" height="687" alt="Windows Server 2022-2026-10-08-11-05-45" src="https://github.com/user-attachments/assets/6128b8c8-dd30-4051-8957-fadeb0361a73" />
+  
   - restore confirmation (restore took roughly 10 seconds)
   <img width="778" height="630" alt="Windows 11 x64-2026-10-08-11-19-20" src="https://github.com/user-attachments/assets/14a58b84-bc3e-469e-8a57-0df69f52932a" />
   
