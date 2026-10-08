@@ -146,8 +146,10 @@ Small company network in virtual machines (VMware Workstation).
   - Common Tab -> check "item-level targeting"
   - Open Targeting -> New Item -> Security Group -> Select "LAB\Sales" with "User in group" checked
   <img width="959" height="1169" alt="image" src="https://github.com/user-attachments/assets/e54b022b-f66e-4053-af8d-b070dee1f727" />
+  
   - S: not visible on IT group user
   <img width="959" height="1169" alt="image" src="https://github.com/user-attachments/assets/ddbfd4bd-5c75-4516-a951-fdde9f5f922d" />
+  
   - S: is visible as a Sales group user
 
   - Restricting Control Panel access, except for IT users
