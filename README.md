@@ -19,11 +19,11 @@ Windows Server 2022 Active Directory home lab: AD DS, DNS, DHCP, Group Policy, f
   ### 1. Server VM setup
   - Create new host only network in Virtual Network Editor (VMnet2)
   - Disable local DHCP (Use Windows DHCP later)
-  - Setup Server VM, select Standard Installation with Desktop Environment (Don't use easy install)
+  - Set up Server VM, select Standard Installation with Desktop Environment (Don't use easy install)
   - Install VMWare Tools using Installation Media
     
   ### 2. Static IP and DNS
-  - Setup new fixed IP address
+  - Set up new fixed IP address
   ```powershell
   New-NetIPAddress -InterfaceAlias "Ethernet0" -IPAddress 192.168.50.10 -PrefixLength 24
   Set-DnsClientServerAddress -InterfaceAlias "Ethernet0" -ServerAddresses 192.168.50.10
@@ -65,7 +65,7 @@ Windows Server 2022 Active Directory home lab: AD DS, DNS, DHCP, Group Policy, f
   ```
   - In an Active Directory network, a DHCP server won't hand out addresses until a domain administrator has authorized it in AD. This protects the network from someone plugging in a rogue DHCP server.
 
-  - Check if everything is setup as expected
+  - Check if everything is set up as expected
   <img width="1066" height="1291" alt="image" src="https://github.com/user-attachments/assets/0fa92430-3b6e-4ec7-b359-4a01af594f0a" />
   
 
@@ -73,8 +73,8 @@ Windows Server 2022 Active Directory home lab: AD DS, DNS, DHCP, Group Policy, f
   
   - DHCP console: Server Manager -> Tools -> DHCP:
     
-  ### 5. Setup Client VM
-  - setup network adapter to use VMnet 2 from earlier (to get ip from my DHCP server)
+  ### 5. Set up Client VM
+  - set up network adapter to use VMnet 2 from earlier (to get ip from my DHCP server)
   - choose Domain join under sign-in options or manually renew ipconfig post install
     <img width="693" height="374" alt="Windows 11 x64-2026-10-07-15-08-36" src="https://github.com/user-attachments/assets/17113857-3841-4f18-a465-86cdb2a4ce1b" />
   - check IP address is in correct pool
@@ -94,6 +94,7 @@ Windows Server 2022 Active Directory home lab: AD DS, DNS, DHCP, Group Policy, f
   ### 7. Create Users in bulk
   - Create .csv file with: FirstName,LastName,Department,Group and fill in example user data
   - create and run PowerShell script to loop through the csv and create new test users
+  - the password is a lab-only initial password that users must change at first login.
   ```powershell
   Import-Module ActiveDirectory
   $ou  = "OU=Staff,DC=lab,DC=internal"
@@ -230,7 +231,7 @@ Windows Server 2022 Active Directory home lab: AD DS, DNS, DHCP, Group Policy, f
 
 ## What went wrong and how I fixed it
 - Error: "Windows cannot find the Microsoft Software License Terms. Make sure the installation sources are valid and restart the installation."
-    - Windows Server Evaluation ISO doesn't seem to be compatible with easy install, so I used custom setup and installed it later manually using the virtual DVD drive
+    - Windows Server Evaluation ISO doesn't seem to be compatible with easy install, so I used "custom setup" and installed it later manually using the virtual DVD drive
  
 - Created the client VM without the server running so i couldn't add it to the domain in the installer and had to do it once booted into fresh install
 - Used commands
