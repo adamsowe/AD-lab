@@ -1,4 +1,4 @@
-Small company network in virtual machines (VMware Workstation).
+Windows Server 2022 Active Directory home lab: AD DS, DNS, DHCP, Group Policy, file shares with NTFS permissions, Windows Server Backup and Veeam backup and restore.
 
 ## What's in it
 - DC01: Windows Server (AD DS, DNS, DHCP)
