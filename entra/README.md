@@ -11,7 +11,6 @@ This is the cloud counterpart to the on-prem Active Directory lab in Part 1.
 - Portals used: Microsoft 365 admin center, Entra admin center
 
 ## 1. Tenant setup
-
 I signed up for a Microsoft 365 Business Premium trial using adam.sowemimo@gmail.com. This created a tenant with the domain `adamlab444.onmicrosoft.com` and made my account the Global Administrator.
 
 Before changing anything I looked around the environment:
@@ -39,6 +38,19 @@ Both portals manage the same tenant. A user created in one shows up in the other
 - Switch to IT Admin
 
 <img width="710" height="1317" alt="image" src="https://github.com/user-attachments/assets/583d7a4d-8019-4744-a42a-6152ae00eb89" />
+- "IT Admin" roles
+
+
+## 3. Create users in bulk from a CSV
+- Users -> Active Users -> Add multiple users -> Select "I'd like to upload a csv with user information"
+- Download a blank CSV file with the required headers and modify the data accordingly
+- Upload your csv and create the users, select no license since I'll be adding that via groups
+- Download the file with user information it generated so I don't have to remember temp passwords
+<img width="1207" height="887" alt="image" src="https://github.com/user-attachments/assets/d355d8ff-719e-4546-8808-00986c036df0" />
+- Successfully created the new users
+
+## 4. Security groups 
+- 
 
 
 
