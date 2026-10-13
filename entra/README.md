@@ -26,3 +26,19 @@ Both portals manage the same tenant. A user created in one shows up in the other
 <img width="1557" height="726" alt="Screenshot 2026-10-13 200034" src="https://github.com/user-attachments/assets/084894cc-f38d-4bcf-96fd-89d236214549" />
 - Users
 
+## 2. Admin accounts and least privilege
+- Goal: do daily work with an account that can manage users but cannot change everything, and keep the full-power account for emergencies.
+
+- Users → Active users -> Add a user
+- I'm calling this user "IT Admin", username will be "itadmin"
+- Select "Require this user to change their password"
+- I'm not giving the user any licenses just yet, so "Create user without product license"
+- Under Optional Settings select "Admin Center Access" -> Helpdesk Administrator and User Administrator
+- Create Account
+- Rename global admin account to "Emergency Admin"
+- Switch to IT Admin
+
+<img width="710" height="1317" alt="image" src="https://github.com/user-attachments/assets/583d7a4d-8019-4744-a42a-6152ae00eb89" />
+
+
+
