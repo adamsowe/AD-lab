@@ -65,6 +65,8 @@ Both portals manage the same tenant. A user created in one shows up in the other
 - Select "add dynamic query"
 - Edit the Rule Syntax to 'user.department -eq "Sales"'
 - Save and create the group
+<img width="1380" height="402" alt="image" src="https://github.com/user-attachments/assets/e5067d32-4d5f-4ba9-bdea-c1300aada9d4" />
+- dynamic grouop
 <img width="1317" height="952" alt="image" src="https://github.com/user-attachments/assets/7355d651-f7f6-4e45-a1cb-5f859461e3dd" />
 - members of dynamic group
 
