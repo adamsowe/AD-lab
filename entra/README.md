@@ -50,7 +50,24 @@ Both portals manage the same tenant. A user created in one shows up in the other
 - Successfully created the new users
 
 ## 4. Security groups 
-- 
+- Entra Admin Center -> Groups -> All Groups -> New Group
+- Group Type should be "Security"
+- Group Name "IT"
+- Add member -> search for "Lukas Huber"
+- Create Group
+- Repeat the same process for Sales and HR 
+<img width="1627" height="872" alt="image" src="https://github.com/user-attachments/assets/6b1debd6-e89a-48bf-b953-6aee1ae7a6de" />
+- newly created groups
+
+- dynamic group
+- New group -> Set name to "Sales-Dynamic"
+- Set "Membership type" to "Dynamic User"
+- Select "add dynamic query"
+- Edit the Rule Syntax to 'user.department -eq "Sales"'
+- Save and create the group
+<img width="1317" height="952" alt="image" src="https://github.com/user-attachments/assets/7355d651-f7f6-4e45-a1cb-5f859461e3dd" />
+- members of dynamic group
+
 
 
 
