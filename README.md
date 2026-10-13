@@ -1,8 +1,8 @@
 # Part 1: Windows Server 2022 / Active Directory
 
-- [Part 2: Microsoft 365 / Entra ID Lab](entra/README.md)
-
 Windows Server 2022 Active Directory home lab: AD DS, DNS, DHCP, Group Policy, file shares with NTFS permissions, Windows Server Backup and Veeam backup and restore.
+
+- [Part 2: Microsoft 365 / Entra ID Lab](entra/README.md)
 
 ## What's in it
 - DC01: Windows Server (AD DS, DNS, DHCP)
