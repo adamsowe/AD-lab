@@ -74,9 +74,11 @@ Both portals manage the same tenant. A user created in one shows up in the other
 - admin.microsoft.com -> Billing -> Licenses -> open "Microsoft 365 Business Premium"
 - Assign licenses -> Add Sales, IT and HR and click assign
 <img width="1577" height="1022" alt="image" src="https://github.com/user-attachments/assets/29e3cc4c-c73c-4565-8755-a040967d635a" />
+
 - newly assigned groups
 <img width="1508" height="518" alt="image" src="https://github.com/user-attachments/assets/a8bc29d1-b078-4b8f-b53b-059274e5438e" />
 <img width="910" height="480" alt="image" src="https://github.com/user-attachments/assets/1c85427b-79b6-451b-844d-22c6677ff09a" />
+
 - licenses successfully got assigned to specific users of the groups
 
 ## 6. MFA with security defaults and a test sign-in
@@ -85,8 +87,10 @@ Both portals manage the same tenant. A user created in one shows up in the other
 - In Incognito tab log in with test user, in this case anna.berger
 - check if user gets promped to setup mfa and reset password
 <img width="612" height="630" alt="image" src="https://github.com/user-attachments/assets/fd883350-d2c8-4366-9ea2-610ac9b27d1b" />
+
 - password reset prompt
 <img width="615" height="645" alt="image" src="https://github.com/user-attachments/assets/3fe799c9-fca6-48dd-b0c2-1de507cd9af4" />
+
 - working mfa prompt
 
 ## 7. Checking sign-in logs
