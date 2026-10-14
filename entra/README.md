@@ -94,7 +94,12 @@ Both portals manage the same tenant. A user created in one shows up in the other
 - working mfa prompt
 
 ## 7. Checking sign-in logs
-- 
+- Entra Admin Center -> Monitoring & health -> sign-in logs
+- Find intended log and check basic info
+<img width="1032" height="1326" alt="Screenshot 2026-10-14 195203" src="https://github.com/user-attachments/assets/7c9adda8-7fab-4279-ab30-d5dbf1340345" />
+
+- successful log with mfa enabled
+
 
 
 
