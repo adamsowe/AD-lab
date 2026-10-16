@@ -113,6 +113,7 @@ Both portals manage the same tenant. A user created in one shows up in the other
 - Grant -> Grant access -> require multifactor auth
 - Enable policy -> "report only" -> Create
 <img width="729" height="568" alt="image" src="https://github.com/user-attachments/assets/fe599270-61f8-4eb5-9834-729259ff5f6f" />
+
 - The new policy post creation
 
 ## 10. testing conditional access
