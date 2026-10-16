@@ -139,7 +139,37 @@ Both portals manage the same tenant. A user created in one shows up in the other
 <img width="834" height="308" alt="image" src="https://github.com/user-attachments/assets/313066fc-9590-4d8b-a179-fe4650e60dce" />
 
 ## 12. Shared Mailbox
-- 
+- admin.exchange.microsoft.com -> Recipients -> Mailboxes -> add a shared mailbox
+- Name: "Sales Shared" -> select domain and set email
+- Open the mailbox -> Delegation -> Add "Anna" to "Send as" and "Read and manage"
+<img width="584" height="418" alt="image" src="https://github.com/user-attachments/assets/a6f5f732-efcd-4126-88ac-c3d7ccd92332" />
+<img width="579" height="410" alt="image" src="https://github.com/user-attachments/assets/0ab19b70-0b14-49ef-a9a3-6df48817f01c" />
+
+- delegation pages
+
+## 13. Distribution list
+- Exchange Admin Center -> Recipients -> Groups -> Add a group -> Type: Distribution
+- Set Name to "All staff" -> set myself as owner and add all the user accounts i generated from csv as members
+- Set email to allstaff@mydomain and set the group to closed
+<img width="577" height="725" alt="image" src="https://github.com/user-attachments/assets/e1d64abd-51ea-4b54-92fc-67dff67f938d" />
+
+- Distribution list members page
+
+## 14. SharePoint with group permissions
+- SharePoint admin center -> Sites -> Active Sites -> Create -> Team Site (Standard Template)
+- Name: "Sales" -> Setting myself as owner
+- Open Site -> Membership -> Site members -> add Sales security group
+<img width="867" height="798" alt="image" src="https://github.com/user-attachments/assets/fbaab280-e3e7-4a66-abf4-4c774c03d756" />
+
+- trying to access with non sales account
+<img width="1252" height="1073" alt="image" src="https://github.com/user-attachments/assets/a5bdcd0e-5203-4067-8458-766bd104e1fc" />
+
+- access works with sales member account
+
+
+
+
+
 
 
 
