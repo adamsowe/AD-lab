@@ -119,9 +119,11 @@ Both portals manage the same tenant. A user created in one shows up in the other
 - I'm goingn to test the policy with Anna account
 - Entra Admin Center -> Monitoring & health -> Sign-in logs -> newest log-in entry with anna -> report only
 <img width="748" height="898" alt="image" src="https://github.com/user-attachments/assets/7f9c4166-1480-4268-ad1d-e4f6db4f3bb6" />
+
 - screenshot of the report only tab on the latest entry
 - Conditional Access -> Policies -> select my policy -> View or Edit -> Set enable policy to "on"
 <img width="439" height="530" alt="image" src="https://github.com/user-attachments/assets/97912872-cac2-4f94-89ac-796146bacf66" />
+
 - Anna now gets prompted for MFA
 
 ## 11. Blocking legacy authentication
