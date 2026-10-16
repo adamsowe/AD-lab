@@ -38,6 +38,7 @@ Both portals manage the same tenant. A user created in one shows up in the other
 - Switch to IT Admin
 
 <img width="710" height="1317" alt="image" src="https://github.com/user-attachments/assets/583d7a4d-8019-4744-a42a-6152ae00eb89" />
+
 - "IT Admin" roles
 
 
@@ -167,10 +168,12 @@ Both portals manage the same tenant. A user created in one shows up in the other
 - access works with sales member account
 
 
+## What went wrong and how I fixed it
+- User Administrator didn't get added to roles upon creation
+- went to manage roles and added it later manually
 
-
-
-
+- When singing in to IT Admin for the first time, I get prompted for a pw. Must've have overseen the une generated during creation
+- used reset password in entra portal since i was still logged in there
 
 
 
