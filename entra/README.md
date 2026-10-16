@@ -100,6 +100,34 @@ Both portals manage the same tenant. A user created in one shows up in the other
 
 - successful log with mfa enabled
 
+## 8. Disabling Security Defaults
+- Entra Admin Center -> Entra ID -> Overview -> Properties -> manage security defaults -> disable
+<img width="431" height="396" alt="image" src="https://github.com/user-attachments/assets/6896ac9a-a413-4ef9-8a52-11154c181d04" />
+
+## 9. report-only MFA policy for Sales
+- Entra ID -> Conditional Access -> Create New Policy
+- Name -> "Require MFA - Sales (report-only)"
+- Users -> include -> Select users and groups -> search for "Sales"
+- exclude -> Select Users and groups -> my two admin accounts
+- Target resources -> All resources (formerly "All cloud apps")
+- Grant -> Grant access -> require multifactor auth
+- Enable policy -> "report only" -> Create
+<img width="729" height="568" alt="image" src="https://github.com/user-attachments/assets/fe599270-61f8-4eb5-9834-729259ff5f6f" />
+- The new policy post creation
+
+## 10. testing conditional access
+- I'm goingn to test the policy with Anna account
+- Entra Admin Center -> Monitoring & health -> Sign-in logs -> newest log-in entry with anna -> report only
+<img width="748" height="898" alt="image" src="https://github.com/user-attachments/assets/7f9c4166-1480-4268-ad1d-e4f6db4f3bb6" />
+- screenshot of the report only tab on the latest entry
+- Conditional Access -> Policies -> select my policy -> View or Edit -> Set enable policy to "on"
+<img width="439" height="530" alt="image" src="https://github.com/user-attachments/assets/97912872-cac2-4f94-89ac-796146bacf66" />
+- Anna now gets prompted for MFA
+
+## 11. Blocking legacy authentication
+- 
+
+
 
 
 
