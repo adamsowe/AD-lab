@@ -124,11 +124,23 @@ Both portals manage the same tenant. A user created in one shows up in the other
 - screenshot of the report only tab on the latest entry
 - Conditional Access -> Policies -> select my policy -> View or Edit -> Set enable policy to "on"
 <img width="439" height="530" alt="image" src="https://github.com/user-attachments/assets/97912872-cac2-4f94-89ac-796146bacf66" />
+- <img width="841" height="336" alt="image" src="https://github.com/user-attachments/assets/9ed79f0d-2e7d-4f4f-ae57-1fa7874fa365" />
 
 - Anna now gets prompted for MFA
 
 ## 11. Blocking legacy authentication
+- Entra ID -> Conditional Access -> Create New Policy
+- name -> "Block legacy authentication"
+- Target resources -> all resources
+- Conditions -> Client apps -> set configure to yes
+- only select "exchange ActiveSync clients" and "other clients"
+- Grant -> Block access
+- Enable policy -> "report only" -> create
+<img width="834" height="308" alt="image" src="https://github.com/user-attachments/assets/313066fc-9590-4d8b-a179-fe4650e60dce" />
+
+## 12. Shared Mailbox
 - 
+
 
 
 
