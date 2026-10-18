@@ -4,6 +4,8 @@ Windows Server 2022 Active Directory home lab: AD DS, DNS, DHCP, Group Policy, f
 
 [Part 2: Microsoft 365 / Entra ID Lab](entra/README.md)
 
+[Part 3: Virtualization Lab](virtualization/README.md)
+
 ## What's in it
 - DC01: Windows Server (AD DS, DNS, DHCP)
 - PC01: Windows 11 client joined to the domain
