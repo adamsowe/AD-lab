@@ -10,3 +10,4 @@ Hyper-V lab with two AlmaLinux servers, managed and hardened with Ansible.
 ```powershell
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
+- restart
