@@ -11,3 +11,9 @@ Hyper-V lab with two AlmaLinux servers, managed and hardened with Ansible.
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 - restart
+<img width="918" height="546" alt="image" src="https://github.com/user-attachments/assets/3fddd0d4-8642-452f-bb0c-a609f6a4cecc" />
+
+- Hyper-V Manager
+
+## 2. Virtual Switch
+- 
