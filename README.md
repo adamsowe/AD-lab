@@ -61,7 +61,7 @@ Windows Server 2022 Active Directory home lab: AD DS, DNS, DHCP, Group Policy, f
   ```powershell
   Add-DhcpServerv4Scope -Name "Lab" -StartRange 192.168.50.100 -EndRange 192.168.50.200 -SubnetMask 255.255.255.0
   ```
-  - Scope: this command sets the pool of addresses the server may hand out. Here it's .100 to .200 on my 192.168.50.x network. That leaves .1 to .99 free for fixed devices like servers.
+  - Scope: this command sets the pool of addresses the server may hand out. Here it's .100 to .200 on my 192.168.50.x network. That leaves .1 to .99 (and .201 to .254) free for fixed devices like servers.
   ```powershell
   Set-DhcpServerv4OptionValue -DnsServer 192.168.50.10 -DnsDomain "lab.internal"
   ```
