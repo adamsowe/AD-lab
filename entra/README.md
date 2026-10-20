@@ -172,7 +172,7 @@ Both portals manage the same tenant. A user created in one shows up in the other
 - User Administrator didn't get added to roles upon creation
 - went to manage roles and added it later manually
 
-- When singing in to IT Admin for the first time, I get prompted for a pw. Must've have overseen the une generated during creation
+- When singing in to IT Admin for the first time, I get prompted for a pw. Must've have overseen the one generated during creation
 - used reset password in entra portal since i was still logged in there
 
 
