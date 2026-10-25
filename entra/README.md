@@ -5,7 +5,7 @@ This is the cloud counterpart to the on-prem Active Directory lab in Part 1.
 
 [Part 1: Windows Server 2022 / Active Directory](/README.md)
 
-[Part 3: Virtualization Lab](virtualization/README.md)
+[Part 3: Virtualization Lab](/virtualization/README.md)
 
 ## Environment
 - Microsoft 365 Business Premium (trial tenant)
