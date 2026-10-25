@@ -71,7 +71,27 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 - alma-web export folder
 
 ## 6. SSH key setup
-- 
+- on alma-ctl generate key using "ssh-keygen -t ed25519
+- I'm using the default settings and not using a passphrase since it's a home lab
+- using ed25519 instead of rsa since it's the current standard and AlmaLinux supports it
+
+<img width="832" height="580" alt="image" src="https://github.com/user-attachments/assets/5dcc39c4-83bf-499e-a3d0-d54bdd1b2c1e" />
+
+- ssh keygen overview
+
+- now i'm going to send the public key to both VMs using:
+```terminal
+ssh-copy-id admin@172.19.151.168
+ssh-copy-id admin@172.19.144.142
+```
+- i'm copying it to alma-ctl as well since it will be the control node and ansible controls it over ssh as well
+
+<img width="1042" height="392" alt="image" src="https://github.com/user-attachments/assets/a5427c69-b0b4-4706-9555-829a1243ceac" />
+
+- successfull ssh connection to alma-web from alma-ctl
+
+
+
 
 
 
