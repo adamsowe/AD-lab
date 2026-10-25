@@ -31,3 +31,24 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 - select where to install the os
 - disable root account
 - create user account and make it an admin account
+- reboot
+- run "ip a" to get network details
+
+<img width="1036" height="435" alt="image" src="https://github.com/user-attachments/assets/951776bd-46a9-4ab4-83e7-51d610ba3561" />
+
+- VM 1 (alma-ctl) Network details
+
+- repeat same steps for second VM called "alma-web"
+
+<img width="947" height="407" alt="image" src="https://github.com/user-attachments/assets/26edbddc-1a8e-475e-960a-52e480f78642" />
+
+- VM 2 (alma-web) Network details
+
+
+## Checkpoints, break and restore
+- 
+
+
+
+
+## What went wrong and how I fixed it
