@@ -80,7 +80,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 - ssh keygen overview
 
 - now i'm going to send the public key to both VMs using:
-```terminal
+```bash
 ssh-copy-id admin@172.19.151.168
 ssh-copy-id admin@172.19.144.142
 ```
@@ -89,6 +89,22 @@ ssh-copy-id admin@172.19.144.142
 <img width="1042" height="392" alt="image" src="https://github.com/user-attachments/assets/a5427c69-b0b4-4706-9555-829a1243ceac" />
 
 - successfull ssh connection to alma-web from alma-ctl
+
+## 7. Ansible install
+- running the following commands to install ansible and check it installed correctly
+```bash
+sudo dnf install -y ansible-core
+ansible-galaxy collection install ansible.posix
+ansible --version
+```
+- The ansible.posix collection is needed for the firewalld and SELinux modules I'll be using
+
+<img width="1182" height="352" alt="image" src="https://github.com/user-attachments/assets/1542baf6-5811-4b84-9397-6cbfbed349c5" />
+
+- install worked, version 2.16.16
+
+## 8. Inventory and connection test
+- 
 
 
 
@@ -99,3 +115,9 @@ ssh-copy-id admin@172.19.144.142
 
 
 ## What went wrong and how I fixed it
+- renamed both VMs since Hyper-V default named them to localhost
+``` bash
+sudo hostnamectl set-hostname alma-ctl
+sudo hostnamectl set-hostname alma-web
+```
+
