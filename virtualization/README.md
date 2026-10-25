@@ -45,8 +45,23 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 - VM 2 (alma-web) Network details
 
 
-## Checkpoints, break and restore
+## 4. Checkpoints, break and restore
+- stop alma-web, right-click and select checkpoint, then rename it to "clean install"
+- stopping NetworkManager with "sudo systemctl stop NetworkManager"
+
+<img width="1277" height="440" alt="image" src="https://github.com/user-attachments/assets/c66a4d55-e6e1-42ec-8665-2192b410550e" />
+
+- NetworkManager status: inactive
+
+- in Hyper-V select the checkpoint and select apply
+
+<img width="1276" height="452" alt="image" src="https://github.com/user-attachments/assets/e5af691d-9a1c-47ae-bde6-a1e746e9f4cb" />
+
+- NetworkManager is active again, post checkpoint apply
+
+## 5. Export and import as a backup
 - 
+
 
 
 
