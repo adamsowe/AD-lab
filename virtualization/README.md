@@ -104,9 +104,36 @@ ansible --version
 - install worked, version 2.16.16
 
 ## 8. Inventory and connection test
+- create folder ansible-lab and create a inventory.ini in it
+```bash
+mkdir ~/ansible-lab && cd ~/ansible-lab
+touch inventory.ini
+```
+- install nano
+```bash
+sudo dnf install nano
+```
+- edit inventory.ini
+```bash
+nano inventory.ini
+```
+- add the following to the ini file
+```ini
+[servers]
+alma-ctl ansible_host=172.19.151.168
+alma-web ansible_host=172.19.144.142
+
+[all:vars]
+ansible_user=admin
+```
+- check if the connection works
+
+<img width="735" height="332" alt="image" src="https://github.com/user-attachments/assets/1621ba08-75e5-445d-927e-f0910aec60e9" />
+
+- success
+
+## 9. Writing the Playbook
 - 
-
-
 
 
 
