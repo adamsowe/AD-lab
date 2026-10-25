@@ -60,7 +60,19 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 - NetworkManager is active again, post checkpoint apply
 
 ## 5. Export and import as a backup
+- shutdown alma-web, right-click and select "export", i'll save it in "D:\alma-export"
+- delete the VM in Hyper-V
+- select "import vm" in Hyper-V, then navigate to the "Virtual Machines" subfolder of the export folder
+- select Reregister VM
+- check if VM works as expected
+
+<img width="856" height="350" alt="image" src="https://github.com/user-attachments/assets/7e9c80ad-87f5-4255-afda-99cd3d25c7d2" />
+
+- alma-web export folder
+
+## 6. SSH key setup
 - 
+
 
 
 
