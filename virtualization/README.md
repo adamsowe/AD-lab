@@ -175,7 +175,31 @@ ansible-playbook -i inventory.ini harden.yml -K
 - Running it a second time changed=0, meaning the playbook works as intended and changes only take effect when they're actually needed
 
 ## 10. verifying the hardening
-- 
+- After the playbook ran, I checked on `alma-web` that the settings were really applied:
+ 
+```bash
+sudo firewall-cmd --list-services
+getenforce
+sudo sshd -T | grep -E 'passwordauthentication|permitrootlogin'
+```
+ 
+| Command | What it does | Result |
+|---|---|---|
+| `sudo firewall-cmd --list-services` | Lists the services the firewall allows | `ssh` |
+| `getenforce` | Shows the SELinux mode | `Enforcing` |
+| `sudo sshd -T` (filtered with `grep`) | Prints the SSH server's active settings and filters the two lines I care about | `passwordauthentication no`, `permitrootlogin no` |
+ 
+To prove that password login is really off, I tried to connect without my key:
+ 
+```bash
+ssh -o PubkeyAuthentication=no admin@172.19.144.142
+```
+ 
+`-o PubkeyAuthentication=no` tells the SSH client not to use my key. The server refused the connection ("Permission denied"), as expected, because passwords are disabled.
+
+<img width="837" height="337" alt="image" src="https://github.com/user-attachments/assets/16c523e8-0c8d-43bc-adfd-4ba11fb25667" />
+
+- expected results get returned
 
 
 
