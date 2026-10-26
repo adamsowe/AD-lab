@@ -104,6 +104,7 @@ ansible --version
 - install worked, version 2.16.16
 
 ## 8. Inventory and connection test
+[Inventory.ini](inventory.ini)
 - inventory means list of machines ansible manages
 - create folder ansible-lab and create a inventory.ini in it
 ```bash
