@@ -104,6 +104,7 @@ ansible --version
 - install worked, version 2.16.16
 
 ## 8. Inventory and connection test
+- inventory means list of machines ansible manages
 - create folder ansible-lab and create a inventory.ini in it
 ```bash
 mkdir ~/ansible-lab && cd ~/ansible-lab
@@ -132,7 +133,7 @@ ansible_user=admin
 
 - success
 
-## 9. Writing the Playbook
+## 9. Writing and testing the Playbook
 - 
 
 
