@@ -137,7 +137,7 @@ ansible_user=admin
 ## 9. Writing and testing the Playbook
 **Goal:** One file that patches both servers and applies the same security settings, so I don't have to do it by hand on each machine.
  
-I created `harden.yml` on `alma-ctl` with `nano` and saved a copy in this repo: [harden.yml](harden.yml). It runs on every host in the `[servers]` group of my inventory and uses `become: true` so the tasks run with `sudo`.
+- I created `harden.yml` on `alma-ctl` with `nano` and saved a copy in this repo: [harden.yml](harden.yml). It runs on every host in the `[servers]` group of my inventory and uses `become: true` so the tasks run with `sudo`.
  
 | Task | What it does | Why |
 |---|---|---|
@@ -150,9 +150,12 @@ I created `harden.yml` on `alma-ctl` with `nano` and saved a copy in this repo: 
 | Disable SSH root login | `lineinfile` on `sshd_config` | No direct root access |
 | Enable time sync | `chronyd` | Correct time for logs |
  
-A handler restarts `sshd` once, and only if the SSH settings were changed.
+- A handler restarts `sshd` once, and only if the SSH settings were changed.
 
-
+- I checked the validity of the syntax using the following command
+```bash
+ansible-playbook -i inventory.ini harden.yml --syntax-check
+```
 
 
 
