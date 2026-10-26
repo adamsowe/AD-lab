@@ -165,8 +165,17 @@ ansible-playbook -i inventory.ini harden.yml --syntax-check
 ansible-playbook -i inventory.ini harden.yml -K
 ```
 - -K just makes it ask for the sudo password to run the playbook
+
 <img width="1452" height="1177" alt="image" src="https://github.com/user-attachments/assets/089b2f9b-2e57-48bc-b1f2-5438162ffaea" />
 
+- Playbook successfully ran and has output changed on 4 Tasks
+
+<img width="1452" height="126" alt="image" src="https://github.com/user-attachments/assets/c3686d47-b72a-4ad2-b54e-04aa5d261091" />
+
+- Running it a second time changed=0 because, meaning the playbook works as intended and changes only take effect when they're actually needed
+
+## 10. verifying the hardening
+- 
 
 
 
