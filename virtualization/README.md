@@ -156,6 +156,17 @@ ansible_user=admin
 ```bash
 ansible-playbook -i inventory.ini harden.yml --syntax-check
 ```
+<img width="1082" height="67" alt="image" src="https://github.com/user-attachments/assets/038572fa-2763-4e96-bdc4-dbdbb756d57f" />
+
+- Successful check
+
+- Running the playbook
+```bash
+ansible-playbook -i inventory.ini harden.yml -K
+```
+- -K just makes it ask for the sudo password to run the playbook
+<img width="1452" height="1177" alt="image" src="https://github.com/user-attachments/assets/089b2f9b-2e57-48bc-b1f2-5438162ffaea" />
+
 
 
 
