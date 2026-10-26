@@ -172,7 +172,7 @@ ansible-playbook -i inventory.ini harden.yml -K
 
 <img width="1452" height="126" alt="image" src="https://github.com/user-attachments/assets/c3686d47-b72a-4ad2-b54e-04aa5d261091" />
 
-- Running it a second time changed=0 because, meaning the playbook works as intended and changes only take effect when they're actually needed
+- Running it a second time changed=0, meaning the playbook works as intended and changes only take effect when they're actually needed
 
 ## 10. verifying the hardening
 - 
