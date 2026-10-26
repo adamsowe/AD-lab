@@ -135,7 +135,22 @@ ansible_user=admin
 - success
 
 ## 9. Writing and testing the Playbook
-- 
+**Goal:** One file that patches both servers and applies the same security settings, so I don't have to do it by hand on each machine.
+ 
+I created `harden.yml` on `alma-ctl` with `nano` and saved a copy in this repo: [harden.yml](harden.yml). It runs on every host in the `[servers]` group of my inventory and uses `become: true` so the tasks run with `sudo`.
+ 
+| Task | What it does | Why |
+|---|---|---|
+| Update all packages | `dnf` with `state: latest` | Installs security patches |
+| Install basic tools | `firewalld`, `policycoreutils`, `chrony` | Makes sure the tools I need exist |
+| Start and enable firewalld | `service` module | Firewall runs now and after every reboot |
+| Allow SSH through the firewall | `ansible.posix.firewalld` | Keeps remote access working |
+| Keep SELinux enforcing | `ansible.posix.selinux` | Blocks unauthorized actions |
+| Disable SSH password login | `lineinfile` on `sshd_config` | Only key login is possible |
+| Disable SSH root login | `lineinfile` on `sshd_config` | No direct root access |
+| Enable time sync | `chronyd` | Correct time for logs |
+ 
+A handler restarts `sshd` once, and only if the SSH settings were changed.
 
 
 
