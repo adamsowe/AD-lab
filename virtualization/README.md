@@ -201,6 +201,23 @@ ssh -o PubkeyAuthentication=no admin@172.19.144.142
 
 - expected results get returned
 
+## 11. final restore test
+- shutdown `alma-web` VM and apply the clean install checkpoint
+- run `sudo sshd -T | grep -E 'passwordauthentication|permitrootlogin'` again to show clean-install checkpoint was really applied
+
+<img width="861" height="300" alt="image" src="https://github.com/user-attachments/assets/b1bb7fe8-db92-4567-bf6e-6548497079d2" />
+
+- shows the values were reset
+
+- next i ran the playbook again `ansible-playbook -i inventory.ini harden.yml -K`
+
+<img width="1270" height="132" alt="image" src="https://github.com/user-attachments/assets/c75a5e13-cbea-40a4-8421-96ae8d5e10bf" />
+
+- i can see that changes were applied on alma-web
+
+<img width="892" height="115" alt="image" src="https://github.com/user-attachments/assets/d58d230f-c7cd-4054-876e-da63947ec285" />
+
+- now when i run the command from earlier the values are correct, demonstrating that ansible brings the server back to the hardened state in one command
 
 
 
@@ -211,4 +228,7 @@ ssh -o PubkeyAuthentication=no admin@172.19.144.142
 sudo hostnamectl set-hostname alma-ctl
 sudo hostnamectl set-hostname alma-web
 ```
+
+- after applying the clean install checkpoint in the final point i forgot to readd the public key for alma-web, so ansible wasn't able to log in and run the playbook on alma-web
+- i ran `ssh-copy-id admin@172.19.144.142` to fix it
 
