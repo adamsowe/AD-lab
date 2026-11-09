@@ -89,7 +89,41 @@ Sort(
 # Part C: Power Automate
 
 ## 1. notifying IT
-- 
+- in power automate portal -> create -> automated cloud flow
+- name it "Idea submitted - notify IT"
+- select notify "when a SharePoint item is created"
+- In Trigger select my Improvement Ideas Site and the Suggestions list
+- Select New step -> Send an email (V2)
+- login using my admin account so the connector works
+- set TO to IT admin email and use dynamic content for Idea data
+
+<img width="377" height="307" alt="image" src="https://github.com/user-attachments/assets/2c9e970d-da0c-4444-b67a-2c33d485d51e" />
+
+- full notification flow
+
+
+## 2. Approval and status
+- create new automated cloud flow
+- name: "Idea submitted - approval" -> trigger: SharePoint item created
+- add the site URL and suggestions list again
+- new step -> SharePoint update item
+- select the site and list and use dynamic content for the item ID
+- update status to "in review"
+- new step -> start and wait for an approval (Approvals)
+- approval type: Approve/Reject - first to respond
+- Title: Review idea: plus dynamic title content
+- New step -> Condition: Outcome is equal to Approve
+- In true branch -> update item: status value = approved
+- Decision comment = approval's response comment
+- In false branch -> update item: status value - rejected
+- After condition -> send an email to = created by email
+- subject: Your Idea was reviews
+- body: status and decision comment
+
+<img width="800" height="905" alt="image" src="https://github.com/user-attachments/assets/029c180f-8aa6-4a23-9c4a-2dac17a756a7" />
+
+- full approval flow
+
 
 
 # What went wrong and how i fixed it
