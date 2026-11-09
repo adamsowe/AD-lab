@@ -81,7 +81,7 @@ Sort(
 
 - my ideas after a few test uploads
 
-- <img width="1257" height="751" alt="image" src="https://github.com/user-attachments/assets/426c2b87-08d0-491b-9a14-172ea8ca6ce8" />
+<img width="1257" height="751" alt="image" src="https://github.com/user-attachments/assets/426c2b87-08d0-491b-9a14-172ea8ca6ce8" />
 
 - new test rows got added to SharePoint list after submitting the form
 
