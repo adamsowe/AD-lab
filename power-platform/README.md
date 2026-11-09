@@ -40,5 +40,63 @@ An internal app where employees submit improvement ideas and IT reviews them, bu
 # Part B: Power Apps Canvas App
 
 ## 1. Creating the app
+- Open Power Apps portal and create new blank canvas app
+- add data source: add data -> search for SharePoint connecter and enter my site's URL
+
+
+## 2. Screen 1: submit form
+- rename sceren 1 to "SubmitScreen"
+- insert edit form and set data source to Suggestions list
+- remove status and decision comment fields as user's won't need to enter these here
+- insert -> button -> text: "Submit"
+- set OnSelect to `SubmitForm(Form1)`
+- Set Form1's OnSuccess to:
+`
+ResetForm(Form1);
+Notify("Thanks, your idea was submitted", NotificationType.Success);
+Navigate(MyIdeasScreen, ScreenTransition.None)
+`
+
+## 3. Screen 2: My Ideas
+- Insert Vertical Gallery and set Items to:
+`
+Sort(
+    Filter(Suggestions, 'Created By'.Email = User().Email),
+    Created,
+    SortOrder.Descending
+)
+`
+- Remove the description label and add two new labels
+- 1st label Text value: ThisItem.Status.Value
+- 2nd label text value: ThisItem.'Decision comment'
+- Insert new Button -> text: New Idea
+- Set OnSelect to `Navigate(SubmitScreen)`
+
+## 4. Test and Publish
+<img width="1292" height="816" alt="image" src="https://github.com/user-attachments/assets/4e3b92ff-867a-41ee-9335-7aaf45aa5afb" />
+
+- submit form
+
+<img width="1311" height="801" alt="image" src="https://github.com/user-attachments/assets/f1091130-f086-4871-83f7-5c7b10dfda1c" />
+
+- my ideas after a few test uploads
+
+- <img width="1257" height="751" alt="image" src="https://github.com/user-attachments/assets/426c2b87-08d0-491b-9a14-172ea8ca6ce8" />
+
+- new test rows got added to SharePoint list after submitting the form
+
+
+# Part C: Power Automate
+
+## 1. notifying IT
 - 
 
+
+# What went wrong and how i fixed it
+- The Edit Form was showing as empty in the app preview, to fix it i set the default mode to "new" instead of "edit"
+
+- Category was showing empty items as selections, I removed the dropdown and added it again then it worked
+
+- Form wouldn't submit cause "Status" is required so I added a new field for status and i set the default value to `{value: "New"}` and hid the field
+
+- 
